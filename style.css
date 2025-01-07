@@ -1,0 +1,58 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    transition: background-color 0.5s, color 0.5s; /* Animasi transisi warna */
+}
+
+.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.table th, .table td {
+    text-align: center;
+}
+
+.search-icon {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+}
+
+.dark-mode-toggle {
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Animasi transformasi */
+}
+
+.dark-mode-toggle:hover {
+    transform: scale(1.1); /* Efek hover */
+}
+
+.rotate {
+    animation: rotate 0.5s ease; /* Animasi rotasi */
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Efek hover pada tombol edit */
+.btn-warning {
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-warning:hover {
+    background-color: #ffc107;
+    transform: scale(1.1);
+}
+
+/* Efek hover pada tabel */
+.table tbody tr:hover {
+    background-color: #f1f1f1;
+}
