@@ -26,15 +26,15 @@ function checkHostStatus($host) {
 
 // Cek status host
 if (checkHostStatus($targetIP)) {
+    shell_exec('python3 babakan.py');
     $hostMessage = "Host $targetIP dapat dijangkau. Menjalankan skrip Python...";
-    $output = shell_exec('python3 babakan.py');
 } else {
     $hostMessage = "Host $targetIP tidak dapat dijangkau. Skrip Python tidak dijalankan.";
 }
 
 // Hitung waktu eksekusi
 $startTime = microtime(true);
-$output = shell_exec('python3 babakan.py');
+shell_exec('python3 babakan.py');
 $endTime = microtime(true);
 $executionTime = $endTime - $startTime;
 

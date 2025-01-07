@@ -100,9 +100,9 @@ try:
     threads = []
 
     # Membuat thread untuk setiap remote_address
-    for user in pppoe_users:
-        remote_address = user.get('remote-address', '')
-        if remote_address:  # Hanya lakukan ping dan HTTP check jika remote address tidak kosong
+    # for user in pppoe_users:
+    #     remote_address = user.get('remote-address', '')
+    #     if remote_address:  # Hanya lakukan ping dan HTTP check jika remote address tidak kosong
             # Thread untuk ping
             # ping_thread = threading.Thread(target=ping_ip, args=(remote_address, ping_results))
             # threads.append(ping_thread)
@@ -114,8 +114,8 @@ try:
             # http_thread.start()
 
     # Menunggu semua thread selesai
-    for thread in threads:
-        thread.join()
+    # for thread in threads:
+    #     thread.join()
 
     # Mengisi tabel dengan data pengguna PPPoE
     for user in pppoe_users:
@@ -138,6 +138,8 @@ try:
         # Mengambil hasil ping dan HTTP response dari dictionary
         # ping_result = ping_results.get(remote_address, 'N/A')
         # http_result = http_results.get(remote_address, 'N/A')
+        ping_result = 'N/A' 
+        http_result = 'N/A'
         
         table.add_row([
             user.get('name', ''),
