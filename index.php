@@ -1,12 +1,18 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
+
 require_once __DIR__ . '/vendor/autoload.php'; // Autoload Composer
 
 use Dotenv\Dotenv;
 
+// Memuat file .env
 $dotenv = Dotenv::createImmutable(__DIR__);
-$dotenv->load();
+$dotenv->load();  // Memuat variabel dari file .env
+
+// Mengambil nilai IP_TARGET dari environment
+$targetIP = getenv('IP_TARGET');
+$hostMessage = "";
 
 // Fungsi untuk memeriksa status host
 function checkHostStatus($host) {
@@ -15,8 +21,6 @@ function checkHostStatus($host) {
 }
 
 // IP yang akan di-ping sebelum menjalankan skrip Python
-$targetIP = getenv('IP_TARGET');
-$hostMessage = "";
 
 // Cek status host
 if (checkHostStatus($targetIP)) {
@@ -35,6 +39,7 @@ $executionTime = $endTime - $startTime;
 // Cek waktu pembuatan file pppoe_users.csv
 $csvFile = "pppoe_users.csv";
 $fileCreationTime = file_exists($csvFile) ? filemtime($csvFile) : null;
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
