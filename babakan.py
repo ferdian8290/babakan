@@ -11,6 +11,8 @@ import os
 
 load_dotenv()
 
+# INI CONTOH
+
 # Ganti dengan informasi MikroTik Anda
 HOST = os.getenv('IP_TARGET')  # Alamat IP MikroTik
 USERNAME = os.getenv('USERNAME_SERVER')     # Username MikroTik
