@@ -10,8 +10,10 @@ use Dotenv\Dotenv;
 $dotenv = Dotenv::createImmutable(__DIR__);
 $dotenv->load();  // Memuat variabel dari file .env
 
+$IP = '10.147.17.212';
+
 // Mengambil nilai IP_TARGET dari environment
-$targetIP = getenv('IP_TARGET');
+$targetIP = $IP;
 $hostMessage = "";
 
 // Fungsi untuk memeriksa status host

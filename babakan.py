@@ -49,31 +49,31 @@ def parse_duration(duration):
 
     return ', '.join(parts) if parts else '0 minutes'
 
-def ping_ip(ip_address, result_dict):
-    """Fungsi untuk melakukan ping ke alamat IP dan menyimpan hasilnya."""
-    try:
-        # Jalankan perintah ping (4 paket untuk contoh)
-        output = subprocess.run(['ping', '-c', '4', ip_address], capture_output=True, text=True, timeout=10)
-        if output.returncode == 0:
-            result_dict[ip_address] = "Success"
-        else:
-            result_dict[ip_address] = "Failed"
-    except subprocess.TimeoutExpired:
-        result_dict[ip_address] = "Ping Timeout"
-    except Exception as e:
-        result_dict[ip_address] = f"Ping Error: {e}"
+# def ping_ip(ip_address, result_dict):
+#     """Fungsi untuk melakukan ping ke alamat IP dan menyimpan hasilnya."""
+#     try:
+#         # Jalankan perintah ping (4 paket untuk contoh)
+#         output = subprocess.run(['ping', '-c', '4', ip_address], capture_output=True, text=True, timeout=10)
+#         if output.returncode == 0:
+#             result_dict[ip_address] = "Success"
+#         else:
+#             result_dict[ip_address] = "Failed"
+#     except subprocess.TimeoutExpired:
+#         result_dict[ip_address] = "Ping Timeout"
+#     except Exception as e:
+#         result_dict[ip_address] = f"Ping Error: {e}"
 
-def check_http_response(ip_address, http_result_dict):
-    """Fungsi untuk memeriksa respons HTTP dari alamat IP dan mengembalikan Yes atau No."""
-    try:
-        # Kirim permintaan HTTP GET ke alamat IP
-        response = requests.get(f"http://{ip_address}", timeout=10)
-        if response.status_code == 200:
-            http_result_dict[ip_address] = "Yes"  # Ganti "OK" menjadi "Yes"
-        else:
-            http_result_dict[ip_address] = "No"   # Ganti "Not OK" menjadi "No"
-    except requests.exceptions.RequestException:
-        http_result_dict[ip_address] = "No"       # Ganti "Not OK" menjadi "No"
+# def check_http_response(ip_address, http_result_dict):
+#     """Fungsi untuk memeriksa respons HTTP dari alamat IP dan mengembalikan Yes atau No."""
+#     try:
+#         # Kirim permintaan HTTP GET ke alamat IP
+#         response = requests.get(f"http://{ip_address}", timeout=10)
+#         if response.status_code == 200:
+#             http_result_dict[ip_address] = "Yes"  # Ganti "OK" menjadi "Yes"
+#         else:
+#             http_result_dict[ip_address] = "No"   # Ganti "Not OK" menjadi "No"
+#     except requests.exceptions.RequestException:
+#         http_result_dict[ip_address] = "No"       # Ganti "Not OK" menjadi "No"
 
 try:
     # Koneksi ke MikroTik
